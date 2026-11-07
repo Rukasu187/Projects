@@ -14,14 +14,12 @@ const count = ref(0);
             <img :src="vueLogo" class="framework" alt="Vue logo" />
             <img :src="viteLogo" class="vite" alt="Vite logo" />
         </div>
-        <div>
-            <h1>Get started</h1>
-            <p>
-                Edit <code>src/App.vue</code> and save to test <code>HMR</code>
-            </p>
-        </div>
-        <button type="button" class="counter" @click="count++">
-            Count is {{ count }}
+        <button
+            type="button"
+            class="counter hover:cursor-pointer"
+            @click="count++"
+        >
+            Count
         </button>
     </section>
 
@@ -32,79 +30,24 @@ const count = ref(0);
             <svg class="icon" role="presentation" aria-hidden="true">
                 <use href="/icons.svg#documentation-icon"></use>
             </svg>
-            <h2>Documentation</h2>
-            <p>Your questions, answered</p>
-            <ul>
-                <li>
-                    <a href="https://vite.dev/" target="_blank">
-                        <img class="logo" :src="viteLogo" alt="" />
-                        Explore Vite
-                    </a>
-                </li>
-                <li>
-                    <a href="https://vuejs.org/" target="_blank">
-                        <img class="button-icon" :src="vueLogo" alt="" />
-                        Learn more
-                    </a>
-                </li>
-            </ul>
+            <h2>Want to reset your Count?</h2>
+            <p>reset by pressing the button below</p>
+            <button
+                type="button"
+                class="counter my-4 hover:cursor-pointer"
+                @click="count = 0"
+            >
+                Reset
+            </button>
         </div>
-        <div id="social">
-            <svg class="icon" role="presentation" aria-hidden="true">
-                <use href="/icons.svg#social-icon"></use>
-            </svg>
-            <h2>Connect with us</h2>
-            <p>Join the Vite community</p>
-            <ul>
-                <li>
-                    <a href="https://github.com/vitejs/vite" target="_blank">
-                        <svg
-                            class="button-icon"
-                            role="presentation"
-                            aria-hidden="true"
-                        >
-                            <use href="/icons.svg#github-icon"></use>
-                        </svg>
-                        GitHub
-                    </a>
-                </li>
-                <li>
-                    <a href="https://chat.vite.dev/" target="_blank">
-                        <svg
-                            class="button-icon"
-                            role="presentation"
-                            aria-hidden="true"
-                        >
-                            <use href="/icons.svg#discord-icon"></use>
-                        </svg>
-                        Discord
-                    </a>
-                </li>
-                <li>
-                    <a href="https://x.com/vite_js" target="_blank">
-                        <svg
-                            class="button-icon"
-                            role="presentation"
-                            aria-hidden="true"
-                        >
-                            <use href="/icons.svg#x-icon"></use>
-                        </svg>
-                        X.com
-                    </a>
-                </li>
-                <li>
-                    <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                        <svg
-                            class="button-icon"
-                            role="presentation"
-                            aria-hidden="true"
-                        >
-                            <use href="/icons.svg#bluesky-icon"></use>
-                        </svg>
-                        Bluesky
-                    </a>
-                </li>
-            </ul>
+        <div v-if="count == 3" id="social">
+            <h3 class="text-shadow-white">count is {{ count }} secret</h3>
+        </div>
+        <div v-else-if="count < 3">
+            <p>count is {{ count }} you havent found the secret yet</p>
+        </div>
+        <div v-else>
+            <p>count is {{ count }}</p>
         </div>
     </section>
 

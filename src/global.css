@@ -1,1 +1,36 @@
 @import "tailwindcss";
+
+/* custom reusable color theme for tailwind */
+@theme {
+    --color-background: #1a1d23;
+    --color-surface: #252932;
+    --color-surface-hover: #2f3440;
+    --color-border: #3a3f4b;
+    --color-foreground: #e5e5e5;
+    --color-muted: #9aa0ad;
+    --color-primary: #6c5ce7;
+    --color-primary-hover: #7d6ff0;
+    --color-secondary: #4b0082;
+    --color-secondary-hover: #5e10a0;
+    --color-success: #00b894;
+    --color-warning: #fdcb6e;
+    --color-danger: #ff6b6b;
+}
+
+.btn {
+    @apply cursor-pointer rounded-lg bg-primary px-5 py-3 font-medium text-white transition hover:scale-105 hover:bg-primary-hover active:scale-95;
+}
+
+.inp {
+    @apply min-w-0 flex-1 rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition placeholder:text-muted focus:border-primary focus:ring-2 focus:ring-primary/40;
+}
+
+.card {
+    @apply gap-3 rounded-2xl border border-border bg-surface p-6 shadow-xl shadow-black/30;
+}
+
+@layer base {
+    body {
+        @apply bg-background text-foreground antialiased;
+    }
+}
